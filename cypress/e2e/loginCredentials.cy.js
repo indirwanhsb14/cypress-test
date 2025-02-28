@@ -1,8 +1,13 @@
+import object from '../pom/object.js';
+import data from '../fixtures/data.json';
+
 describe("Success Login", () => {
   it("User logged in", () => {
-    cy.visit('https://recruitment-staging-queenbee.paradev.io/login').clear();
-    cy.get('#page-login__tabs-number__input-number').clear().type('82268115697');
-    cy.get('#page-login__tabs-email__input-password').clear().type('Pass123@');
-    cy.get('#page-login__button-login').click();
+    cy.visit('https://recruitment-staging-queenbee.paradev.io');
+    object.loginButton().pause().click() //using pause because there are advertisement and cookies must be close manual, resume the the cypress after close the advertisement
+    object.usernameField().clear().type(data.phoneNumber)
+    object.passwordField().clear().type(data.password)
+    object.enterButton().click();
+    
   })
 })

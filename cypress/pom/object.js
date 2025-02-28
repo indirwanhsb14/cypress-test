@@ -10,4 +10,8 @@ export default class object {
     static enterButton() {
         return cy.get('#page-login__button-login');
     }
+
+    static loginButton() {
+        return cy.get('[href="/login"]');
+    }
 }
